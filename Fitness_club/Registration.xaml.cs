@@ -31,6 +31,7 @@ namespace Fitness_club
             var a = new Client();
             a.FirstName = fname.Text;
             a.Name = name.Text;
+            a.Phone = int.Parse(phone.Text);
             a.Login = login.Text;
             a.password = psswrd.Text;
             bd_connection.conn.Client.Add(a);
