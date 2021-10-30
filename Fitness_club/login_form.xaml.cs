@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,29 @@ namespace Fitness_club
     /// </summary>
     public partial class login_form : Page
     {
+        public static ObservableCollection<Client> clientss { get; set; }
         public login_form()
         {
             InitializeComponent();
+        }
+
+        private void Autor_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Registration());
+        }
+
+        private void Enter_Click(object sender, RoutedEventArgs e)
+        {
+            clientss = new ObservableCollection<Client>(bd_connection.conn.Client.ToList());
+            var nothing = clientss.Where(a => a.Login == Email.Text && a.password == Password.Text).FirstOrDefault();
+            if (nothing != null)
+            {
+                MessageBox.Show(nothing.Name);
+            }
+            else
+            {
+                MessageBox.Show("Error", "440", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

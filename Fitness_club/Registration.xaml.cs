@@ -24,5 +24,21 @@ namespace Fitness_club
         {
             InitializeComponent();
         }
+
+
+        private void Regis_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new Client();
+            a.FirstName = fname.Text;
+            a.Name = name.Text;
+            a.Login = login.Text;
+            a.password = psswrd.Text;
+            bd_connection.conn.Client.Add(a);
+            bd_connection.conn.SaveChanges();
+            MessageBox.Show("all ok");
+            NavigationService.GoBack();
+
+
+        }
     }
 }
