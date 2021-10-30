@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Fitness_clubModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abonement">
+          <Key>
+            <PropertyRef Name="ID_abonement" />
+          </Key>
+          <Property Name="ID_abonement" Type="int" Nullable="false" />
+          <Property Name="Date_start" Type="datetime" />
+          <Property Name="Date_finish" Type="datetime" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Trener" Type="varchar" MaxLength="50" />
+          <Property Name="Count_trens" Type="int" />
+          <Property Name="ID_trener" Type="int" />
+          <Property Name="ID_typeAb" Type="int" />
+          <Property Name="ID_zal" Type="int" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ID_shkaf" Type="int" />
+          <Property Name="Login" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Shkaf">
+          <Key>
+            <PropertyRef Name="ID_shkaf" />
+          </Key>
+          <Property Name="ID_shkaf" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Trener">
+          <Key>
+            <PropertyRef Name="ID_trener" />
+          </Key>
+          <Property Name="ID_trener" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Oklad" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TypeAbon">
+          <Key>
+            <PropertyRef Name="ID_typeAb" />
+          </Key>
+          <Property Name="ID_typeAb" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Uchet">
+          <Key>
+            <PropertyRef Name="ID_client" />
+            <PropertyRef Name="ID_abonement" />
+          </Key>
+          <Property Name="ID_client" Type="int" Nullable="false" />
+          <Property Name="ID_abonement" Type="int" Nullable="false" />
+          <Property Name="Date_price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Activ_days" Type="int" />
+        </EntityType>
+        <EntityType Name="Zal">
+          <Key>
+            <PropertyRef Name="ID_zal" />
+          </Key>
+          <Property Name="ID_zal" Type="int" Nullable="false" />
+          <Property Name="Count_place" Type="int" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Type_tren" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Abonement_Trener">
+          <End Role="Trener" Type="Self.Trener" Multiplicity="0..1" />
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trener">
+              <PropertyRef Name="ID_trener" />
+            </Principal>
+            <Dependent Role="Abonement">
+              <PropertyRef Name="ID_trener" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonement_TypeAbon">
+          <End Role="TypeAbon" Type="Self.TypeAbon" Multiplicity="0..1" />
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAbon">
+              <PropertyRef Name="ID_typeAb" />
+            </Principal>
+            <Dependent Role="Abonement">
+              <PropertyRef Name="ID_typeAb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonement_Zal">
+          <End Role="Zal" Type="Self.Zal" Multiplicity="0..1" />
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zal">
+              <PropertyRef Name="ID_zal" />
+            </Principal>
+            <Dependent Role="Abonement">
+              <PropertyRef Name="ID_zal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Shkaf">
+          <End Role="Shkaf" Type="Self.Shkaf" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shkaf">
+              <PropertyRef Name="ID_shkaf" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_shkaf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uchet_Abonement">
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="1" />
+          <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonement">
+              <PropertyRef Name="ID_abonement" />
+            </Principal>
+            <Dependent Role="Uchet">
+              <PropertyRef Name="ID_abonement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uchet_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_client" />
+            </Principal>
+            <Dependent Role="Uchet">
+              <PropertyRef Name="ID_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Fitness_clubModelContainer">
+          <EntitySet Name="Abonement" EntityType="Self.Abonement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shkaf" EntityType="Self.Shkaf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trener" EntityType="Self.Trener" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeAbon" EntityType="Self.TypeAbon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uchet" EntityType="Self.Uchet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zal" EntityType="Self.Zal" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Abonement_Trener" Association="Self.FK_Abonement_Trener">
+            <End Role="Trener" EntitySet="Trener" />
+            <End Role="Abonement" EntitySet="Abonement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonement_TypeAbon" Association="Self.FK_Abonement_TypeAbon">
+            <End Role="TypeAbon" EntitySet="TypeAbon" />
+            <End Role="Abonement" EntitySet="Abonement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonement_Zal" Association="Self.FK_Abonement_Zal">
+            <End Role="Zal" EntitySet="Zal" />
+            <End Role="Abonement" EntitySet="Abonement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Shkaf" Association="Self.FK_Client_Shkaf">
+            <End Role="Shkaf" EntitySet="Shkaf" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uchet_Abonement" Association="Self.FK_Uchet_Abonement">
+            <End Role="Abonement" EntitySet="Abonement" />
+            <End Role="Uchet" EntitySet="Uchet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uchet_Client" Association="Self.FK_Uchet_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Uchet" EntitySet="Uchet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Fitness_clubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Abonement">
+          <Key>
+            <PropertyRef Name="ID_abonement" />
+          </Key>
+          <Property Name="ID_abonement" Type="Int32" Nullable="false" />
+          <Property Name="Date_start" Type="DateTime" Precision="3" />
+          <Property Name="Date_finish" Type="DateTime" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Trener" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Count_trens" Type="Int32" />
+          <Property Name="ID_trener" Type="Int32" />
+          <Property Name="ID_typeAb" Type="Int32" />
+          <Property Name="ID_zal" Type="Int32" />
+          <NavigationProperty Name="Trener1" Relationship="Self.FK_Abonement_Trener" FromRole="Abonement" ToRole="Trener" />
+          <NavigationProperty Name="TypeAbon" Relationship="Self.FK_Abonement_TypeAbon" FromRole="Abonement" ToRole="TypeAbon" />
+          <NavigationProperty Name="Zal" Relationship="Self.FK_Abonement_Zal" FromRole="Abonement" ToRole="Zal" />
+          <NavigationProperty Name="Uchet" Relationship="Self.FK_Uchet_Abonement" FromRole="Abonement" ToRole="Uchet" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_shkaf" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Shkaf" Relationship="Self.FK_Client_Shkaf" FromRole="Client" ToRole="Shkaf" />
+          <NavigationProperty Name="Uchet" Relationship="Self.FK_Uchet_Client" FromRole="Client" ToRole="Uchet" />
+        </EntityType>
+        <EntityType Name="Shkaf">
+          <Key>
+            <PropertyRef Name="ID_shkaf" />
+          </Key>
+          <Property Name="ID_shkaf" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Shkaf" FromRole="Shkaf" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Trener">
+          <Key>
+            <PropertyRef Name="ID_trener" />
+          </Key>
+          <Property Name="ID_trener" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Oklad" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Abonement" Relationship="Self.FK_Abonement_Trener" FromRole="Trener" ToRole="Abonement" />
+        </EntityType>
+        <EntityType Name="TypeAbon">
+          <Key>
+            <PropertyRef Name="ID_typeAb" />
+          </Key>
+          <Property Name="ID_typeAb" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Abonement" Relationship="Self.FK_Abonement_TypeAbon" FromRole="TypeAbon" ToRole="Abonement" />
+        </EntityType>
+        <EntityType Name="Uchet">
+          <Key>
+            <PropertyRef Name="ID_client" />
+            <PropertyRef Name="ID_abonement" />
+          </Key>
+          <Property Name="ID_client" Type="Int32" Nullable="false" />
+          <Property Name="ID_abonement" Type="Int32" Nullable="false" />
+          <Property Name="Date_price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Activ_days" Type="Int32" />
+          <NavigationProperty Name="Abonement" Relationship="Self.FK_Uchet_Abonement" FromRole="Uchet" ToRole="Abonement" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Uchet_Client" FromRole="Uchet" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Zal">
+          <Key>
+            <PropertyRef Name="ID_zal" />
+          </Key>
+          <Property Name="ID_zal" Type="Int32" Nullable="false" />
+          <Property Name="Count_place" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type_tren" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Abonement" Relationship="Self.FK_Abonement_Zal" FromRole="Zal" ToRole="Abonement" />
+        </EntityType>
+        <Association Name="FK_Abonement_Trener">
+          <End Role="Trener" Type="Self.Trener" Multiplicity="0..1" />
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trener">
+              <PropertyRef Name="ID_trener" />
+            </Principal>
+            <Dependent Role="Abonement">
+              <PropertyRef Name="ID_trener" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonement_TypeAbon">
+          <End Role="TypeAbon" Type="Self.TypeAbon" Multiplicity="0..1" />
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAbon">
+              <PropertyRef Name="ID_typeAb" />
+            </Principal>
+            <Dependent Role="Abonement">
+              <PropertyRef Name="ID_typeAb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonement_Zal">
+          <End Role="Zal" Type="Self.Zal" Multiplicity="0..1" />
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zal">
+              <PropertyRef Name="ID_zal" />
+            </Principal>
+            <Dependent Role="Abonement">
+              <PropertyRef Name="ID_zal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uchet_Abonement">
+          <End Role="Abonement" Type="Self.Abonement" Multiplicity="1" />
+          <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonement">
+              <PropertyRef Name="ID_abonement" />
+            </Principal>
+            <Dependent Role="Uchet">
+              <PropertyRef Name="ID_abonement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Shkaf">
+          <End Role="Shkaf" Type="Self.Shkaf" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shkaf">
+              <PropertyRef Name="ID_shkaf" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_shkaf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uchet_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_client" />
+            </Principal>
+            <Dependent Role="Uchet">
+              <PropertyRef Name="ID_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Fitness_clubEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abonement" EntityType="Self.Abonement" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Shkaf" EntityType="Self.Shkaf" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Trener" EntityType="Self.Trener" />
+          <EntitySet Name="TypeAbon" EntityType="Self.TypeAbon" />
+          <EntitySet Name="Uchet" EntityType="Self.Uchet" />
+          <EntitySet Name="Zal" EntityType="Self.Zal" />
+          <AssociationSet Name="FK_Abonement_Trener" Association="Self.FK_Abonement_Trener">
+            <End Role="Trener" EntitySet="Trener" />
+            <End Role="Abonement" EntitySet="Abonement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonement_TypeAbon" Association="Self.FK_Abonement_TypeAbon">
+            <End Role="TypeAbon" EntitySet="TypeAbon" />
+            <End Role="Abonement" EntitySet="Abonement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonement_Zal" Association="Self.FK_Abonement_Zal">
+            <End Role="Zal" EntitySet="Zal" />
+            <End Role="Abonement" EntitySet="Abonement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uchet_Abonement" Association="Self.FK_Uchet_Abonement">
+            <End Role="Abonement" EntitySet="Abonement" />
+            <End Role="Uchet" EntitySet="Uchet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Shkaf" Association="Self.FK_Client_Shkaf">
+            <End Role="Shkaf" EntitySet="Shkaf" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uchet_Client" Association="Self.FK_Uchet_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Uchet" EntitySet="Uchet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Fitness_clubModelContainer" CdmEntityContainer="Fitness_clubEntities">
+          <EntitySetMapping Name="Abonement">
+            <EntityTypeMapping TypeName="Fitness_clubModel.Abonement">
+              <MappingFragment StoreEntitySet="Abonement">
+                <ScalarProperty Name="ID_abonement" ColumnName="ID_abonement" />
+                <ScalarProperty Name="Date_start" ColumnName="Date_start" />
+                <ScalarProperty Name="Date_finish" ColumnName="Date_finish" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Trener" ColumnName="Trener" />
+                <ScalarProperty Name="Count_trens" ColumnName="Count_trens" />
+                <ScalarProperty Name="ID_trener" ColumnName="ID_trener" />
+                <ScalarProperty Name="ID_typeAb" ColumnName="ID_typeAb" />
+                <ScalarProperty Name="ID_zal" ColumnName="ID_zal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="Fitness_clubModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID_client" ColumnName="ID_client" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="ID_shkaf" ColumnName="ID_shkaf" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shkaf">
+            <EntityTypeMapping TypeName="Fitness_clubModel.Shkaf">
+              <MappingFragment StoreEntitySet="Shkaf">
+                <ScalarProperty Name="ID_shkaf" ColumnName="ID_shkaf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Fitness_clubModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trener">
+            <EntityTypeMapping TypeName="Fitness_clubModel.Trener">
+              <MappingFragment StoreEntitySet="Trener">
+                <ScalarProperty Name="ID_trener" ColumnName="ID_trener" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Oklad" ColumnName="Oklad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeAbon">
+            <EntityTypeMapping TypeName="Fitness_clubModel.TypeAbon">
+              <MappingFragment StoreEntitySet="TypeAbon">
+                <ScalarProperty Name="ID_typeAb" ColumnName="ID_typeAb" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uchet">
+            <EntityTypeMapping TypeName="Fitness_clubModel.Uchet">
+              <MappingFragment StoreEntitySet="Uchet">
+                <ScalarProperty Name="ID_client" ColumnName="ID_client" />
+                <ScalarProperty Name="ID_abonement" ColumnName="ID_abonement" />
+                <ScalarProperty Name="Date_price" ColumnName="Date_price" />
+                <ScalarProperty Name="Activ_days" ColumnName="Activ_days" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zal">
+            <EntityTypeMapping TypeName="Fitness_clubModel.Zal">
+              <MappingFragment StoreEntitySet="Zal">
+                <ScalarProperty Name="ID_zal" ColumnName="ID_zal" />
+                <ScalarProperty Name="Count_place" ColumnName="Count_place" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Type_tren" ColumnName="Type_tren" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

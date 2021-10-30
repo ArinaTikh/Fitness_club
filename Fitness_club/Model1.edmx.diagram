@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ddcaf8c2f0b44321ac4c167f7905c90d" Name="Diagram1">
+        <EntityTypeShape EntityType="Fitness_clubModel.Abonement" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.Client" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.Shkaf" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.Trener" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.TypeAbon" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.Uchet" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.Zal" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="Fitness_clubModel.FK_Abonement_Trener" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitness_clubModel.FK_Abonement_TypeAbon" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitness_clubModel.FK_Abonement_Zal" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Abonement" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitness_clubModel.FK_Client_Shkaf" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Client" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
