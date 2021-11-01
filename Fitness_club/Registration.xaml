@@ -21,6 +21,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
+                <RowDefinition Height="60"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -37,6 +38,12 @@
             <TextBox x:Name="phone" Grid.Column="3" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="Телефон" FontSize="23" Foreground="#626262" MaxLength="6"/>
             <StackPanel Grid.Column="3" Grid.Row="4"  Grid.ColumnSpan="3">
                 <Button Content="Зарегистрироваться" Margin="40,30,30,20" Background="#312B69" FontSize="20" FontWeight="Regular" Foreground="White" Height="49" Click="Regis_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3">
+                <Button Content="Назад" Margin="70,30,70,20" Background="#626262" FontSize="20" FontWeight="Regular" Foreground="White" Height="49" Click="Back_Click"/>
+                </StackPanel>
+            <StackPanel Grid.Column="3" Grid.Row="5"  Grid.ColumnSpan="3">
+                <Button Content="Выход" Margin="70,30,70,20" Background="#626262" FontSize="20" FontWeight="Regular" Foreground="White" Height="49" Click="Exit_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

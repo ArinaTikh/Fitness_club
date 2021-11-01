@@ -36,10 +36,25 @@ namespace Fitness_club
             a.password = psswrd.Text;
             bd_connection.conn.Client.Add(a);
             bd_connection.conn.SaveChanges();
-            MessageBox.Show("all ok");
+            MessageBox.Show("Успешно");
             NavigationService.GoBack();
 
 
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Закрыть приложение?", "Выход",
+                MessageBoxButton.OKCancel, MessageBoxImage.Question );
+            if( result == MessageBoxResult.OK)
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

@@ -33,5 +33,6 @@ namespace Fitness_club
         public virtual DbSet<TypeAbon> TypeAbon { get; set; }
         public virtual DbSet<Uchet> Uchet { get; set; }
         public virtual DbSet<Zal> Zal { get; set; }
+        public virtual DbSet<card> card { get; set; }
     }
 }

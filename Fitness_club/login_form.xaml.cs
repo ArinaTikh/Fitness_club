@@ -38,7 +38,7 @@ namespace Fitness_club
             var nothing = clientss.Where(a => a.Login == Email.Text && a.password == Password.Text).FirstOrDefault();
             if (nothing != null)
             {
-                MessageBox.Show(nothing.Name);
+                NavigationService.Navigate(new Kabinet());
             }
             else
             {

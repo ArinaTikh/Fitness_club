@@ -69,11 +69,20 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="bd_connection.cs" />
+    <Compile Include="card.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="FBalanse.xaml.cs">
+      <DependentUpon>FBalanse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Kabinet.xaml.cs">
       <DependentUpon>Kabinet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Know.xaml.cs">
+      <DependentUpon>Know.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
@@ -101,7 +110,15 @@
     <Compile Include="Zal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="FBalanse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kabinet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Know.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

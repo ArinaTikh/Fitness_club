@@ -24,7 +24,25 @@ namespace Fitness_club
         {
             InitializeComponent();
         }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Закрыть приложение?", "Выход",
+               MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (result == MessageBoxResult.OK)
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+        }
 
-     
+        private void Balance_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FBalanse());
+        }
+
+
+        private void Know_Click(object sender, RoutedEventArgs e)
+        {
+            (new Know()).Show();
+        }
     }
 }

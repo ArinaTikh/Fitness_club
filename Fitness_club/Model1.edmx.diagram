@@ -19,6 +19,8 @@
         <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Abonement" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Client_Shkaf" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Client" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Fitness_clubModel.card" Width="1.5" PointX="5.25" PointY="11.5" />
+        <AssociationConnector Association="Fitness_clubModel.FK_card_Client" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

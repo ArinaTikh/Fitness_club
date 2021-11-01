@@ -18,13 +18,13 @@ namespace Fitness_club
         public Client()
         {
             this.Uchet = new HashSet<Uchet>();
+            this.card = new HashSet<card>();
         }
     
         public int ID_client { get; set; }
         public string FirstName { get; set; }
         public string Name { get; set; }
         public Nullable<int> Phone { get; set; }
-        public Nullable<decimal> Balance { get; set; }
         public Nullable<int> ID_shkaf { get; set; }
         public string Login { get; set; }
         public string password { get; set; }
@@ -32,5 +32,7 @@ namespace Fitness_club
         public virtual Shkaf Shkaf { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Uchet> Uchet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<card> card { get; set; }
     }
 }
