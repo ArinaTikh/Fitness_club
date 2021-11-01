@@ -19,7 +19,7 @@ namespace Fitness_club
         public Nullable<decimal> Date_price { get; set; }
         public Nullable<int> Activ_days { get; set; }
     
-        public virtual Abonement Abonement { get; set; }
+        public virtual Abon Abon { get; set; }
         public virtual Client Client { get; set; }
     }
 }

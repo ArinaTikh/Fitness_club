@@ -25,14 +25,13 @@ namespace Fitness_club
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Abonement> Abonement { get; set; }
+        public virtual DbSet<Abon> Abon { get; set; }
+        public virtual DbSet<card> card { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Shkaf> Shkaf { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Trener> Trener { get; set; }
         public virtual DbSet<TypeAbon> TypeAbon { get; set; }
         public virtual DbSet<Uchet> Uchet { get; set; }
         public virtual DbSet<Zal> Zal { get; set; }
-        public virtual DbSet<card> card { get; set; }
     }
 }

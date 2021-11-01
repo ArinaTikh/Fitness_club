@@ -17,8 +17,8 @@ namespace Fitness_club
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
-            this.Uchet = new HashSet<Uchet>();
             this.card = new HashSet<card>();
+            this.Uchet = new HashSet<Uchet>();
         }
     
         public int ID_client { get; set; }
@@ -29,10 +29,10 @@ namespace Fitness_club
         public string Login { get; set; }
         public string password { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<card> card { get; set; }
         public virtual Shkaf Shkaf { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Uchet> Uchet { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<card> card { get; set; }
     }
 }

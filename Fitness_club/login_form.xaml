@@ -26,8 +26,8 @@
         </Grid.RowDefinitions>
         <Image Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2"  Source="picture/logotype.png" Width="180">
         </Image>
-        <TextBox x:Name="Email" Grid.Column="1" Grid.Row="2" Background="Silver" Margin="10,29" Grid.ColumnSpan="2" Text="Email" FontSize="25" Foreground="#626262"/>
-        <TextBox x:Name="Password" Grid.Column="1" Grid.Row="3" Background="Silver" Margin="10,29" Grid.ColumnSpan="2" Text="Password" FontSize="25" Foreground="#626262" MaxLength="6"/>
+        <TextBox x:Name="Email" Grid.Column="1" Grid.Row="2" Background="Silver" Margin="10,29" Grid.ColumnSpan="2" FontSize="25" Foreground="#626262"/>
+        <TextBox x:Name="Password" Grid.Column="1" Grid.Row="3" Background="Silver" Margin="10,29" Grid.ColumnSpan="2" FontSize="25" Foreground="#626262" MaxLength="6"/>
             <StackPanel Grid.Column="1" Grid.Row="4" Margin="10,35" >
         <Button Content="Вход"  Background="#312B69" FontSize="20" FontWeight="Regular" Foreground="White" Click="Enter_Click"/>
             </StackPanel>

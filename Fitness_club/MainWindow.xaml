@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="590" Width="800">
     <Grid Background="White">
-        <Frame x:Name="Enter"/>
+        <Frame NavigationUIVisibility="Hidden" x:Name="Enter"/>
     </Grid>
     
 </Window>

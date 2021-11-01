@@ -17,7 +17,7 @@ namespace Fitness_club
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeAbon()
         {
-            this.Abonement = new HashSet<Abonement>();
+            this.Abon = new HashSet<Abon>();
         }
     
         public int ID_typeAb { get; set; }
@@ -25,6 +25,6 @@ namespace Fitness_club
         public Nullable<decimal> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Abonement> Abonement { get; set; }
+        public virtual ICollection<Abon> Abon { get; set; }
     }
 }

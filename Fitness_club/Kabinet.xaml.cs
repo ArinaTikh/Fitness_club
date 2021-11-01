@@ -44,5 +44,10 @@ namespace Fitness_club
         {
             (new Know()).Show();
         }
+
+        private void abbuy_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Abonement());
+        }
     }
 }

@@ -12,10 +12,10 @@ namespace Fitness_club
     using System;
     using System.Collections.Generic;
     
-    public partial class Abonement
+    public partial class Abon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Abonement()
+        public Abon()
         {
             this.Uchet = new HashSet<Uchet>();
         }
@@ -24,13 +24,14 @@ namespace Fitness_club
         public Nullable<System.DateTime> Date_start { get; set; }
         public Nullable<System.DateTime> Date_finish { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public string Trener { get; set; }
         public Nullable<int> Count_trens { get; set; }
         public Nullable<int> ID_trener { get; set; }
         public Nullable<int> ID_typeAb { get; set; }
         public Nullable<int> ID_zal { get; set; }
+        public string name { get; set; }
+        public string secName { get; set; }
     
-        public virtual Trener Trener1 { get; set; }
+        public virtual Trener Trener { get; set; }
         public virtual TypeAbon TypeAbon { get; set; }
         public virtual Zal Zal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
