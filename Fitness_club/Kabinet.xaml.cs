@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
@@ -8,10 +9,11 @@ namespace Fitness_club
     /// Логика взаимодействия для Kabinet.xaml
     /// </summary>
     public partial class Kabinet : Page
-    {
+    {    public static ObservableCollection<card> cardt { get; set; }
         public Kabinet()
         {
             InitializeComponent();
+
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -38,5 +40,10 @@ namespace Fitness_club
         {
             NavigationService.Navigate(new Abonement());
         }
+        private string GetBalance()
+        {
+            return CurrentSession.client.card.balance.ToString();
+        }
     }
+   
 }
