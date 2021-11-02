@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Fitness_club
 {
@@ -24,6 +13,7 @@ namespace Fitness_club
         public Know()
         {
             InitializeComponent();
+            GetBalance();
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
@@ -39,6 +29,11 @@ namespace Fitness_club
                 MessageBox.Show("Пользователь не найден", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        private string GetBalance()
+        {
+             return CurrentSession.client.card.balance.ToString();
         }
     }
 }

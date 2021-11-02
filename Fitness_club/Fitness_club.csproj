@@ -78,6 +78,7 @@
     <Compile Include="Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CurrentSession.cs" />
     <Compile Include="FBalanse.xaml.cs">
       <DependentUpon>FBalanse.xaml</DependentUpon>
     </Compile>

@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="81c5c0f9f8b74e33a227b806399c1666" Name="Diagram1">
+      <Diagram DiagramId="afcbb2fb22674d7ab8f3d79612eeeb20" Name="Diagram1">
         <EntityTypeShape EntityType="Fitness_clubModel.Abon" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Fitness_clubModel.card" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Fitness_clubModel.Client" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.card" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitness_clubModel.Client" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Fitness_clubModel.Shkaf" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Fitness_clubModel.Trener" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Fitness_clubModel.TypeAbon" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
@@ -17,9 +17,9 @@
         <AssociationConnector Association="Fitness_clubModel.FK_Abonement_TypeAbon" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Abonement_Zal" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Abonement" ManuallyRouted="false" />
-        <AssociationConnector Association="Fitness_clubModel.FK_card_Client" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Client_Shkaf" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitness_clubModel.FK_Client_card" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

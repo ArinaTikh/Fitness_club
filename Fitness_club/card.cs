@@ -14,14 +14,21 @@ namespace Fitness_club
     
     public partial class card
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public card()
+        {
+            this.Client = new HashSet<Client>();
+        }
+    
         public int id_card { get; set; }
         public Nullable<int> number_card { get; set; }
         public string date { get; set; }
         public string vladelec { get; set; }
         public Nullable<int> cvc { get; set; }
         public Nullable<int> balance { get; set; }
-        public Nullable<int> id_client { get; set; }
+        public Nullable<int> Pokypka { get; set; }
     
-        public virtual Client Client { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Client> Client { get; set; }
     }
 }

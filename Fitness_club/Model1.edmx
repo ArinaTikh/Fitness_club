@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Fitness_clubModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Fitness_clubModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Abon">
           <Key>
             <PropertyRef Name="ID_abonement" />
@@ -30,7 +30,7 @@
           <Property Name="vladelec" Type="varchar" MaxLength="50" />
           <Property Name="cvc" Type="int" />
           <Property Name="balance" Type="int" />
-          <Property Name="id_client" Type="int" />
+          <Property Name="Pokypka" Type="int" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -43,6 +43,7 @@
           <Property Name="ID_shkaf" Type="int" />
           <Property Name="Login" Type="varchar" MaxLength="50" />
           <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="id_card" Type="int" />
         </EntityType>
         <EntityType Name="Shkaf">
           <Key>
@@ -122,15 +123,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_card_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="card" Type="Self.card" Multiplicity="*" />
+        <Association Name="FK_Client_card">
+          <End Role="card" Type="Self.card" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ID_client" />
+            <Principal Role="card">
+              <PropertyRef Name="id_card" />
             </Principal>
-            <Dependent Role="card">
-              <PropertyRef Name="id_client" />
+            <Dependent Role="Client">
+              <PropertyRef Name="id_card" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -191,9 +192,9 @@
             <End Role="Zal" EntitySet="Zal" />
             <End Role="Abon" EntitySet="Abon" />
           </AssociationSet>
-          <AssociationSet Name="FK_card_Client" Association="Self.FK_card_Client">
-            <End Role="Client" EntitySet="Client" />
+          <AssociationSet Name="FK_Client_card" Association="Self.FK_Client_card">
             <End Role="card" EntitySet="card" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_Shkaf" Association="Self.FK_Client_Shkaf">
             <End Role="Shkaf" EntitySet="Shkaf" />
@@ -208,8 +209,7 @@
             <End Role="Uchet" EntitySet="Uchet" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Fitness_clubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -242,8 +242,8 @@
           <Property Name="vladelec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cvc" Type="Int32" />
           <Property Name="balance" Type="Int32" />
-          <Property Name="id_client" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_card_Client" FromRole="card" ToRole="Client" />
+          <Property Name="Pokypka" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Fitness_clubModel.FK_Client_card" FromRole="card" ToRole="Client" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -256,9 +256,10 @@
           <Property Name="ID_shkaf" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="card" Relationship="Self.FK_card_Client" FromRole="Client" ToRole="card" />
           <NavigationProperty Name="Shkaf" Relationship="Self.FK_Client_Shkaf" FromRole="Client" ToRole="Shkaf" />
           <NavigationProperty Name="Uchet" Relationship="Self.FK_Uchet_Client" FromRole="Client" ToRole="Uchet" />
+          <Property Name="id_card" Type="Int32" />
+          <NavigationProperty Name="card" Relationship="Fitness_clubModel.FK_Client_card" FromRole="Client" ToRole="card" />
         </EntityType>
         <EntityType Name="Shkaf">
           <Key>
@@ -356,18 +357,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_card_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="card" Type="Self.card" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ID_client" />
-            </Principal>
-            <Dependent Role="card">
-              <PropertyRef Name="id_client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Client_Shkaf">
           <End Role="Shkaf" Type="Self.Shkaf" Multiplicity="0..1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
@@ -417,10 +406,6 @@
             <End Role="Abon" EntitySet="Abon" />
             <End Role="Uchet" EntitySet="Uchet" />
           </AssociationSet>
-          <AssociationSet Name="FK_card_Client" Association="Self.FK_card_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="card" EntitySet="card" />
-          </AssociationSet>
           <AssociationSet Name="FK_Client_Shkaf" Association="Self.FK_Client_Shkaf">
             <End Role="Shkaf" EntitySet="Shkaf" />
             <End Role="Client" EntitySet="Client" />
@@ -429,7 +414,23 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Uchet" EntitySet="Uchet" />
           </AssociationSet>
+          <AssociationSet Name="FK_Client_card" Association="Fitness_clubModel.FK_Client_card">
+            <End Role="card" EntitySet="card" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Client_card">
+          <End Type="Fitness_clubModel.card" Role="card" Multiplicity="0..1" />
+          <End Type="Fitness_clubModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="card">
+              <PropertyRef Name="id_card" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="id_card" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -461,13 +462,14 @@
                 <ScalarProperty Name="vladelec" ColumnName="vladelec" />
                 <ScalarProperty Name="cvc" ColumnName="cvc" />
                 <ScalarProperty Name="balance" ColumnName="balance" />
-                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="Pokypka" ColumnName="Pokypka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="Fitness_clubModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="id_card" ColumnName="id_card" />
                 <ScalarProperty Name="ID_client" ColumnName="ID_client" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
