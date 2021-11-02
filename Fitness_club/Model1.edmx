@@ -40,7 +40,6 @@
           <Property Name="FirstName" Type="varchar" MaxLength="50" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Phone" Type="int" />
-          <Property Name="ID_shkaf" Type="int" />
           <Property Name="Login" Type="varchar" MaxLength="50" />
           <Property Name="password" Type="varchar" MaxLength="50" />
           <Property Name="id_card" Type="int" />
@@ -135,18 +134,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Client_Shkaf">
-          <End Role="Shkaf" Type="Self.Shkaf" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Shkaf">
-              <PropertyRef Name="ID_shkaf" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="ID_shkaf" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Uchet_Abonement">
           <End Role="Abon" Type="Self.Abon" Multiplicity="1" />
           <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
@@ -194,10 +181,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Client_card" Association="Self.FK_Client_card">
             <End Role="card" EntitySet="card" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Shkaf" Association="Self.FK_Client_Shkaf">
-            <End Role="Shkaf" EntitySet="Shkaf" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
           <AssociationSet Name="FK_Uchet_Abonement" Association="Self.FK_Uchet_Abonement">
@@ -253,10 +236,8 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="Int32" />
-          <Property Name="ID_shkaf" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Shkaf" Relationship="Self.FK_Client_Shkaf" FromRole="Client" ToRole="Shkaf" />
           <NavigationProperty Name="Uchet" Relationship="Self.FK_Uchet_Client" FromRole="Client" ToRole="Uchet" />
           <Property Name="id_card" Type="Int32" />
           <NavigationProperty Name="card" Relationship="Fitness_clubModel.FK_Client_card" FromRole="Client" ToRole="card" />
@@ -266,7 +247,6 @@
             <PropertyRef Name="ID_shkaf" />
           </Key>
           <Property Name="ID_shkaf" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Shkaf" FromRole="Shkaf" ToRole="Client" />
         </EntityType>
         <EntityType Name="Trener">
           <Key>
@@ -357,18 +337,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Client_Shkaf">
-          <End Role="Shkaf" Type="Self.Shkaf" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Shkaf">
-              <PropertyRef Name="ID_shkaf" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="ID_shkaf" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Uchet_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
@@ -405,10 +373,6 @@
           <AssociationSet Name="FK_Uchet_Abonement" Association="Self.FK_Uchet_Abonement">
             <End Role="Abon" EntitySet="Abon" />
             <End Role="Uchet" EntitySet="Uchet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Shkaf" Association="Self.FK_Client_Shkaf">
-            <End Role="Shkaf" EntitySet="Shkaf" />
-            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
           <AssociationSet Name="FK_Uchet_Client" Association="Self.FK_Uchet_Client">
             <End Role="Client" EntitySet="Client" />
@@ -474,7 +438,6 @@
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="ID_shkaf" ColumnName="ID_shkaf" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="password" ColumnName="password" />
               </MappingFragment>

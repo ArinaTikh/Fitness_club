@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
      d:DesignHeight="450" d:DesignWidth="800"
       Background="White"
-      Title="Abonement">
+      Title="Abonement" >
 
     <Grid Margin="5" Background="#312B69">
         <Grid Margin="5" Background="White">

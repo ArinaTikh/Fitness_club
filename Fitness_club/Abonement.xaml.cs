@@ -132,7 +132,13 @@ namespace Fitness_club
         private void pay_Click(object sender, RoutedEventArgs e)
         {
             AbonPurchase(int.Parse(Summa.Text));
-            
+            MessageBoxResult result = MessageBox.Show("Оплата прошла успешно!", "Информация",
+                MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            if (result == MessageBoxResult.OK)
+            {
+                NavigationService.Navigate(new Kabinet());
+            }
+
         }
     }
 }

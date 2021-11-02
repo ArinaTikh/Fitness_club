@@ -14,15 +14,6 @@ namespace Fitness_club
     
     public partial class Shkaf
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Shkaf()
-        {
-            this.Client = new HashSet<Client>();
-        }
-    
         public int ID_shkaf { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
     }
 }

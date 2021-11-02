@@ -31,11 +31,16 @@
             </Image>
             <TextBlock Text="Регистрация" Grid.Column="1" Grid.ColumnSpan="3" FontSize="50" Foreground="#312B69" FontWeight="DemiBold"/>
             <TextBlock Text="Введите данные:" Grid.Column="0" Grid.Row="1" Padding="20" Grid.ColumnSpan="2" FontSize="25" Foreground="#626262"/>
-            <TextBox x:Name="name" Grid.Column="0" Grid.Row="2" Background="Silver" Margin="40,30,30,25"  Grid.ColumnSpan="3" Text="Имя" FontSize="23" Foreground="#626262"/>
-            <TextBox x:Name="fname" Grid.Column="3" Grid.Row="2" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="Фамилия" FontSize="23" Foreground="#626262"/>
-            <TextBox x:Name="login" Grid.Column="0" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="Логин" FontSize="23" Foreground="#626262" MaxLength="6"/>
-            <TextBox x:Name="psswrd" Grid.Column="0" Grid.Row="4" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="Пароль" FontSize="23" Foreground="#626262" MaxLength="6"/>
-            <TextBox x:Name="phone" Grid.Column="3" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="Телефон" FontSize="23" Foreground="#626262" MaxLength="6"/>
+            <TextBlock Text="Введите имя:" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="40,0" Foreground="#626262" FontSize="20"/>
+            <TextBox x:Name="name" Grid.Column="0" Grid.Row="2" Background="Silver" Margin="40,30,30,25"  Grid.ColumnSpan="3" FontSize="23" Foreground="#626262"/>
+            <TextBlock Text="Придумайте логин:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="40,0" Foreground="#626262" FontSize="20"/>
+            <TextBlock Text="Введите фамилию:" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="40,0" Foreground="#626262" FontSize="20"/>
+            <TextBox x:Name="fname" Grid.Column="3" Grid.Row="2" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262"/>
+            <TextBlock Text="Придумайте пароль:" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Margin="40,0" Foreground="#626262" FontSize="20"/>
+            <TextBox x:Name="login" Grid.Column="0" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" MaxLength="6"/>
+            <PasswordBox x:Name="psswrd" Grid.Column="0" Grid.Row="4" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" MaxLength="6"/>
+            <TextBlock Text="Введите телефон:" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="3" Margin="40,0" Foreground="#626262" FontSize="20"/>
+            <TextBox x:Name="phone" Grid.Column="3" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" MaxLength="6"/>
             <StackPanel Grid.Column="3" Grid.Row="4"  Grid.ColumnSpan="3">
                 <Button Content="Зарегистрироваться" Margin="40,30,30,20" Background="#312B69" FontSize="20" FontWeight="Regular" Foreground="White" Height="49" Click="Regis_Click"/>
             </StackPanel>

@@ -25,7 +25,7 @@ namespace Fitness_club
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
             clientss = new ObservableCollection<Client>(bd_connection.conn.Client.ToList());
-            var nothing = clientss.Where(a => a.Login == Email.Text && a.password == Password.Text).FirstOrDefault();
+            var nothing = clientss.Where(a => a.Login == Email.Text && a.password == Password.Password).FirstOrDefault();
             if (nothing != null)
             {
                 CurrentSession.client = nothing;

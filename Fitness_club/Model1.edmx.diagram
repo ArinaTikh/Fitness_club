@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="afcbb2fb22674d7ab8f3d79612eeeb20" Name="Diagram1">
+      <Diagram DiagramId="afcbb2fb22674d7ab8f3d79612eeeb20" Name="Diagram1" ZoomLevel="81">
         <EntityTypeShape EntityType="Fitness_clubModel.Abon" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Fitness_clubModel.card" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Fitness_clubModel.Client" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
@@ -17,7 +17,6 @@
         <AssociationConnector Association="Fitness_clubModel.FK_Abonement_TypeAbon" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Abonement_Zal" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Abonement" ManuallyRouted="false" />
-        <AssociationConnector Association="Fitness_clubModel.FK_Client_Shkaf" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Uchet_Client" ManuallyRouted="false" />
         <AssociationConnector Association="Fitness_clubModel.FK_Client_card" />
       </Diagram>

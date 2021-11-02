@@ -22,7 +22,7 @@ namespace Fitness_club
             a.Name = name.Text;
             a.Phone = int.Parse(phone.Text);
             a.Login = login.Text;
-            a.password = psswrd.Text;
+            a.password = psswrd.Password;
             bd_connection.conn.Client.Add(a);
             bd_connection.conn.SaveChanges();
             MessageBox.Show("Успешно");

@@ -19,7 +19,7 @@ namespace Fitness_club
                MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
-                System.Windows.Application.Current.Shutdown();
+                NavigationService.Navigate(new login_form());
             }
         }
 
