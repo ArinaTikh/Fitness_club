@@ -9,10 +9,14 @@ namespace Fitness_club
     /// Логика взаимодействия для Kabinet.xaml
     /// </summary>
     public partial class Kabinet : Page
-    {    public static ObservableCollection<card> cardt { get; set; }
+    {
+        public static ObservableCollection<card> cardt { get; set; }
+        public static ObservableCollection<Client> clietss { get; set; }
         public Kabinet()
         {
             InitializeComponent();
+            balance.Text = GetBalance();
+            Kuser.Text = Name.ToString();
 
         }
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -45,5 +49,4 @@ namespace Fitness_club
             return CurrentSession.client.card.balance.ToString();
         }
     }
-   
 }

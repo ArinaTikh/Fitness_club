@@ -30,11 +30,16 @@
             </Image>
             <TextBlock Text="Пополнить баланс" Grid.Column="1" Grid.ColumnSpan="4" FontSize="50" Foreground="#312B69" FontWeight="DemiBold"/>
             <TextBlock Text="Введите данные:" Grid.Column="0" Grid.Row="1" Padding="20" Grid.ColumnSpan="2" FontSize="25" Foreground="#626262"/>
-            <TextBox x:Name="numb" Grid.Column="0" Grid.Row="2" Background="Silver" Margin="40,30,30,25"  Grid.ColumnSpan="3" Text="Номер карты" FontSize="23" Foreground="#626262" MaxLength="16"/>
-            <TextBox x:Name="date" Grid.Column="0" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="Месяц/Год" FontSize="23" Foreground="#626262" MaxLength="4"/>
-            <TextBox x:Name="namef" Grid.Column="0" Grid.Row="4" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="Владелец" FontSize="23" Foreground="#626262" />
-            <TextBox x:Name="cvc" Grid.Column="3" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="cvc" FontSize="23" Foreground="#626262" MaxLength="3"/>
-            <TextBox x:Name="sum" Grid.Column="3" Grid.Row="4" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" Text="cумма" FontSize="23" Foreground="#626262" />
+            <TextBlock Text="Имя:" Grid.Column="0" Grid.Row="2" Margin="40,5,30,0" FontSize="20" Foreground="#626262"/>
+            <TextBox x:Name="numb" Grid.Column="0" Grid.Row="2" Background="Silver" Margin="40,30,30,25"  Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" MaxLength="16"/>
+            <TextBlock Text="Месяц и год:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="40,5,30,0" FontSize="20" Foreground="#626262"/>
+            <TextBox x:Name="date" Grid.Column="0" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" MaxLength="4"/>
+            <TextBlock Text="Владелец:" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="40,5,30,0" FontSize="20" Foreground="#626262"/>
+            <TextBox x:Name="namef" Grid.Column="0" Grid.Row="4" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" />
+            <TextBlock Text="Cvc:" Grid.Column="3" Grid.Row="3" Margin="40,5,30,0" FontSize="20" Foreground="#626262"/>
+            <TextBox x:Name="cvc" Grid.Column="3" Grid.Row="3" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" MaxLength="3"/>
+            <TextBlock Text="Сумма:" Grid.Column="3" Grid.Row="4" Margin="40,5,30,0" FontSize="20" Foreground="#626262"/>
+            <TextBox x:Name="sum" Grid.Column="3" Grid.Row="4" Background="Silver" Margin="40,30,30,25" Grid.ColumnSpan="3" FontSize="23" Foreground="#626262" />
             <StackPanel Grid.Column="2" Grid.Row="5"  Grid.ColumnSpan="2">
                 <Button Content="Пополнить" Margin="40,30,30,20" Background="#312B69" FontSize="20" FontWeight="Regular" Foreground="White" Height="49" Click="pay_Click"/>
             </StackPanel>

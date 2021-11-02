@@ -27,8 +27,8 @@
             </Grid.RowDefinitions>
             <Image Grid.Column="0" Grid.Row="0"   Source="picture/logotype.png" Width="100">
             </Image>
-            <TextBox x:Name="Kuser" Grid.Row="1" Grid.Column="0" Margin="40,30,30,20" BorderBrush="#00000000" FontSize="20" Foreground=""/>
-            <TextBox x:Name="balance" Grid.Row="1" Grid.Column="1" Margin="40,30,30,20" BorderBrush="#00000000" FontSize="20"/>
+            <TextBox Text="Name" x:Name="Kuser" Grid.Row="1" Grid.Column="0" Margin="40,30,30,20" BorderBrush="#00000000" FontSize="20" Foreground="#626262"/>
+            <TextBox Text="balance" x:Name="balance" Grid.Row="1" Grid.Column="1" Margin="40,30,30,20" BorderBrush="#00000000" FontSize="20" Foreground="#626262"/>
             
             <TextBlock x:Name="user" Text="Добро пожаловать!" Grid.Column="1" Grid.ColumnSpan="3" FontSize="40" Foreground="#312B69" FontWeight="DemiBold"/>
             <StackPanel Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2">
